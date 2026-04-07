@@ -1,4 +1,4 @@
-/*#include <stdio.h>
+#include <stdio.h>
 #include <stdlib.h>
 #define _CRT_SECURE_NO_WARNINGS
 #define N 30
@@ -18,8 +18,8 @@
 		int (*ap)[N] = (int*)malloc(sizeof(int) * N);	
 
 
-		int i = 0;        // ù ��° ��
-		int j = num1 / 2;    // ��� ��
+		int i = 0;        // Ã¹ ¹øÂ° Çà
+		int j = num1 / 2;    // °¡¿îµ¥ ¿­
 		for (int num = 1; num <= num1 * num1; num++) {
 			*(*(arr + i) + j) = num;
 

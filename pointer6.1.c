@@ -4,7 +4,7 @@
 
 int main() {
     int num1;
-    scanf("%d", &num1);
+    scanf_s("%d", &num1);
     if (num1 % 2 == 0) {
         printf("홀수만 입력 가능합니다.\n");
         return 0;
@@ -40,7 +40,7 @@ int main() {
     // 출력
     for (int r = 0; r < num1; r++) {
         for (int c = 0; c < num1; c++) {
-            printf("%3d ", *(arr + r * num1 + c));
+            printf("%d ", *(arr + r * num1 + c));
         }
         printf("\n");
     }

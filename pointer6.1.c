@@ -1,63 +1,51 @@
 #include <stdio.h>
 #include <stdlib.h>
-#define N 101
+#define _CRT_SECURE_NO_WARNINGS
 
 int main() {
-	int n = 100;
+    int num1;
+    scanf("%d", &num1);
+    if (num1 % 2 == 0) {
+        printf("í™€ìˆ˜ë§Œ ì…ë ¥ ê°€ëŠ¥í•©ë‹ˆë‹¤.\n");
+        return 0;
+    }
 
+    // ë™ì  í• ë‹¹: num1 x num1 í¬ê¸°
+    int* arr = (int*)malloc(sizeof(int) * num1 * num1);
+    if (arr == NULL) {
+        return 0;
+    }
 
-	int arr[N] = { 0 };
+    // ì´ˆê¸°í™”
+    for (int k = 0; k < num1 * num1; k++) {
+        *(arr + k) = 0;
+    }
 
-	int (*ap)[N] = (int*)malloc(sizeof(int) * N);
+    int i = 0;            // ì²« ë²ˆì§¸ í–‰
+    int j = num1 / 2;     // ê°€ìš´ë° ì—´
+    for (int num = 1; num <= num1 * num1; num++) {
+        *(arr + i * num1 + j) = num;
 
-	//0ºÎÅÍ n±îÁö ¹è¿­»ı¼º
-	for (int i = 0; i <= n; i++) {
-		*(arr + i) = i;
-	}
+        int next_i = (i - 1 + num1) % num1;
+        int next_j = (j + 1) % num1;
 
-	//0~n±îÁö Ãâ·Â
-	printf("0~n±îÁö: ");
-	for (int i = 0; i <= n; i++) {
-		printf("%d ", *(arr + i));
-	}
+        if (*(arr + next_i * num1 + next_j) != 0) {
+            i = (i + 1) % num1;
+        }
+        else {
+            i = next_i;
+            j = next_j;
+        }
+    }
 
-	printf("\n");
-	//n~0±îÁö Ãâ·Â
-	printf("n~0±îÁö: ");
-	for (int i = n; i >= 0; i--) {
-		printf("%d ", *(arr + i));
-	}
+    // ì¶œë ¥
+    for (int r = 0; r < num1; r++) {
+        for (int c = 0; c < num1; c++) {
+            printf("%3d ", *(arr + r * num1 + c));
+        }
+        printf("\n");
+    }
 
-	printf("\n");
-
-	int total = 0;
-	//ÃÑÇÕ Ãâ·Â
-	for (int i = 0; i < n; i++) {
-		total += *(arr + i);
-		;
-	}
-
-	printf("ÃÑÇÕ: %d\n", total);
-
-	//ÃÖ´ë , ÃÖ¼Ò
-	int min = *(arr + 0);
-
-	int max = *(arr + 0);
-
-
-	for (int i = 0; i <= n; i++) {
-		if (arr[i] < min) {
-			min = *(arr + i);
-
-		}
-		if (arr[i] > max) {
-			max = *(arr + i);
-
-		}
-	}
-
-	printf("ÃÖ¼Ò: %d, ÃÖ´ë: %d\n", min, max);
-
-	return 0;
+    free(arr);
+    return 0;
 }
-

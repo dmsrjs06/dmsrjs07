@@ -9,20 +9,19 @@ int main() {
         printf("홀수만 입력 가능합니다.\n");
         return 0;
     }
-
-    // 동적 할당: num1 x num1 크기
+    //동적할당
     int* arr = (int*)malloc(sizeof(int) * num1 * num1);
     if (arr == NULL) {
         return 0;
     }
 
-    // 초기화
+    //초기화
     for (int k = 0; k < num1 * num1; k++) {
         *(arr + k) = 0;
     }
 
-    int i = 0;            // 첫 번째 행
-    int j = num1 / 2;     // 가운데 열
+    int i = 0;
+    int j = num1 / 2;
     for (int num = 1; num <= num1 * num1; num++) {
         *(arr + i * num1 + j) = num;
 

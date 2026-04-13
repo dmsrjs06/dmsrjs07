@@ -1,6 +1,6 @@
-###재귀적 방법
+** 재귀적 방법 **
 <img width="2159" height="1179" alt="재귀적 방법" src="https://github.com/user-attachments/assets/79fd7be3-9bc6-4417-ad68-4d8eb4dd77fa" />
-###순환적 방법
+** 순환적 방법 **
 <img width="2830" height="1106" alt="순환적 방법" src="https://github.com/user-attachments/assets/c9916863-dce4-4c5b-bbb7-26154ad4acd5" />
 
 

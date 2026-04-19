@@ -35,9 +35,8 @@ int insertArrayList(arrayList* al, int pos, elementArrayList item) {
         return 0;
     }
 
-    //Æ÷È­ »óÅÂÀÏ °æ¿ì reallocÀ¸·Î Å©±â È®Àå
     if (isFullArrayList(al)) {
-        al->capacity *= 2; // Å©±â¸¦ 2¹è·Î È®Àå
+        al->capacity *= 2;
         elementArrayList* newData = (elementArrayList*)realloc(al->data, sizeof(elementArrayList) * al->capacity);
         if (newData == NULL) {
             return 0;
@@ -45,7 +44,6 @@ int insertArrayList(arrayList* al, int pos, elementArrayList item) {
         al->data = newData;
     }
     
-    //µ¥ÀÌÅÍ µÚ·Î ¹Ð±â
     for (int i = al->size; i > pos; i--) {
         al->data[i] = al->data[i - 1];
     }
@@ -91,7 +89,7 @@ int replaceItemArrayList(arrayList* al, int pos, elementArrayList item) {
 }
 
 void printArrayList(arrayList* al) {
-    printf("¼øÂ÷ ¸®½ºÆ®: ");
+    printf("ìˆœì°¨ ë¦¬ìŠ¤íŠ¸: ");
     for (int i = 0; i < al->size; i++) {
         printf("%d ", al->data[i]);
     }
